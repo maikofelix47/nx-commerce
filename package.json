@@ -6,7 +6,10 @@
     "start:be": "nx serve back-end",
     "start:fe": "nx serve front-end",
     "test:fe": "nx run front-end:test",
-    "test:be": "nx run back-end:test"
+    "test:be": "nx run back-end:test",
+    "build-prod:fe": "nx run front-end:build:production",
+    "build-prod:be": "nx run back-end:build:production",
+    "build-prod:all": "npx nx run-many -t build"
   },
   "private": true,
   "dependencies": {
