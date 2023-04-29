@@ -41,3 +41,6 @@ Thumbs.db
 .angular
 
 *environment.ts
+*db-config.ts
+*aws-constants.ts
+*jwt-constants.ts
