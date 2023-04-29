@@ -1,0 +1,10 @@
+.rating-container{
+    display: grid;
+    grid-template-columns: 100%;
+}
+.checked{
+    color:  #673ab7;;
+}
+.unchecked{
+    color: grey;
+}

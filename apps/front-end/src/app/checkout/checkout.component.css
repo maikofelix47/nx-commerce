@@ -1,0 +1,14 @@
+.checkout-grid-container{
+    display: grid;
+    grid-template-columns: 60%;
+    margin-left: 25%;
+}
+.checkout-title{
+    text-align: center;
+}
+mat-form-field{
+    width: 51%;
+}
+.checkout-navigation button{
+  margin-left: 5px;
+}

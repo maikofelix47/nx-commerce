@@ -1,0 +1,20 @@
+<div class="signup-container">
+    <h2 align="center">Register</h2>
+    
+    <form class="signup-form">
+      <mat-form-field class="signup-form-field">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" [(ngModel)]="userName" name="userName" />
+      </mat-form-field>
+      <mat-form-field class="signup-form-field">
+        <mat-label>Email</mat-label>
+        <input matInput type="email" [(ngModel)]="email" name="email" />
+      </mat-form-field>
+      <mat-form-field class="signup-form-field">
+        <mat-label>Password</mat-label>
+        <input matInput type="password" [(ngModel)]="password" name="password" />
+      </mat-form-field>
+      <button mat-raised-button color="primary" (click)="signUp()">Sign Up</button>
+    </form>
+    </div>
+    

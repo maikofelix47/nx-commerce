@@ -1,0 +1,16 @@
+<div class="category-content">
+<h2 class="category-title">Categories</h2>
+  <div class="grid-container">
+    <div class="grid-item" *ngFor="let category of categories; index as i">
+        <mat-card
+              class="category-card" 
+              (click)="goToCategory(category.id)">
+              <h4>{{category.name}}</h4>
+          </mat-card>
+    </div>
+     
+  </div>
+</div>
+
+
+  

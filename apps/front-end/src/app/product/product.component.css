@@ -1,0 +1,35 @@
+.products-content{
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-top: 50px;
+}
+.products-filter-container{
+    display: grid;
+    grid-template-columns: 20% 80%;
+}
+.product-grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+}
+.category-card{
+    height: 480px;
+    width: 300px;
+}
+.category-card img{
+    max-height: 45%;
+}
+.product-btn{
+    background-color: #FFF;
+    color: #673ab7;
+    width: 50%;
+}
+.product-btn:hover{
+    background-color: #673ab7;
+    color: #FFF;
+}
+.section-title{
+    text-align: center;
+}
+.product-title{
+    color: #673ab7;
+}

@@ -1,0 +1,27 @@
+<mat-list class="error-list" *ngIf="errorMessages.length > 0">
+    <mat-list-item *ngFor="let error of errorMessages; index as i" class="error-item">{{error.message}}</mat-list-item>
+</mat-list>
+<mat-list class="success-list" *ngIf="successMessages.length > 0">
+    <mat-list-item *ngFor="let success of successMessages; index as i" class="success-item">{{success.message}}</mat-list-item>
+</mat-list>
+
+<h1 mat-dialog-title></h1>
+<div mat-dialog-content>
+  <p>Edit Shopping Cart</p>
+  <mat-form-field class="dialog-form-field">
+    <mat-label>Product</mat-label>
+    <input matInput [(ngModel)]="data.productName" readonly disabled>
+  </mat-form-field>
+  <mat-form-field class="dialog-form-field">
+    <mat-label>Price</mat-label>
+    <input matInput [(ngModel)]="data.unitPrice" readonly disabled>
+  </mat-form-field>
+  <mat-form-field class="dialog-form-field">
+    <mat-label>Quantity</mat-label>
+    <input matInput [(ngModel)]="data.quantity" type="number">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="warn" (click)="onNoClick()">Close</button>
+  <button mat-raised-button color="primary" (click)="updateCart()">Save</button>
+</div>

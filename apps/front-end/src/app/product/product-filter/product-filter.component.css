@@ -1,0 +1,4 @@
+.pf-container{
+    display: grid;
+    grid-template-columns: 100%;
+}

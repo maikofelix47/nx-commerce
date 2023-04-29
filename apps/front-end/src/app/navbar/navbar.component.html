@@ -1,0 +1,37 @@
+<nav class="app-navbar">
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <span><a [routerLink]="['/']" class="router-link">Elgon Shop</a></span>
+    <span class=""></span>
+    <span class="example-spacer"></span>
+    <span>
+      <a [routerLink]="['/shopping-cart']" class="router-link">
+      <mat-icon aria-hidden="false" matBadge="{{itemsInCart$ | async}}" matBadgeColor="warn" aria-label="Shopping cart icon" fontIcon="shopping_cart" *ngIf="loggedInUser?.userName"></mat-icon> 
+      
+     </a>
+   </span>
+   <span class=""></span>
+   <!--
+    <span>
+    <app-search></app-search>
+  </span>
+-->
+    <button mat-button [matMenuTriggerFor]="menu" *ngIf="loggedInUser?.userName">
+      {{ loggedInUser?.userName }} <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+    </button>
+    <a [routerLink]="['/login']" class="router-link" *ngIf="!loggedInUser?.userName">Login</a>
+    <mat-menu #menu="matMenu">
+    <button mat-menu-item>My Account</button>
+    <button mat-menu-item>Orders</button>
+    <button mat-menu-item (click)="logOut()">Log out</button>
+    </mat-menu>
+    <button mat-button [matMenuTriggerFor]="adminMenu">
+     Admin <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="person"></mat-icon>
+    </button>
+    <mat-menu #adminMenu="matMenu">
+      <a [routerLink]="['/admin']" class="router-link" mat-menu-item>Dashboard</a>
+    </mat-menu>
+  </mat-toolbar>
+  </nav>

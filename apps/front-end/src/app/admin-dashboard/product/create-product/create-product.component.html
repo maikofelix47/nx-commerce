@@ -1,0 +1,52 @@
+<div class="create-product-form">
+  <form [formGroup]="createProductForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name : </mat-label>
+      <input matInput formControlName="name" type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select
+        formControlName="categoryId"
+        (selectionChange)="onCategorySelect()"
+      >
+        <mat-option
+          value="{{ category.id }}"
+          *ngFor="let category of categories$ | async"
+          >{{ category.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Sub Category</mat-label>
+      <mat-select formControlName="subCategoryId">
+        <mat-option
+          value="{{ subCategory.id }}"
+          *ngFor="let subCategory of subCategories$ | async"
+          >{{ subCategory.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Price : </mat-label>
+      <input matInput formControlName="price" type="number" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>In Stock : </mat-label>
+      <input matInput formControlName="inStock" type="number" />
+    </mat-form-field>
+    Feature Image :
+    <input
+      type="file"
+      formControlName="featureImg"
+      (change)="onFileChange($event)"
+    />
+    <button mat-button mat-raised-button color="primary" (click)="submitData()">
+      Create
+    </button>
+  </form>
+</div>

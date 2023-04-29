@@ -1,0 +1,93 @@
+<div class="checkout-grid-container">
+    <div class="checkout-grid">
+        <h2 class="checkout-title">Checkout</h2>
+        <mat-stepper [linear]="true" #stepper>
+            <mat-step [stepControl]="paymentModeFormGroup">
+              <form [formGroup]="paymentModeFormGroup">
+                <ng-template matStepLabel>Payment Mode</ng-template>
+                <mat-form-field appearance="fill">
+                    <mat-label>Payment Mode</mat-label>
+                    <mat-select formControlName="paymentMode" [(ngModel)]="paymentMode">
+                      <mat-option value="mpesa">MPESA</mat-option>
+                      <mat-option value="visa">VISA</mat-option>
+                      <mat-option value="airtel-money">Airtel Money</mat-option>
+                      <mat-option value="cod">Cash on Delivery</mat-option>
+                      <mat-option value="mod">Mpesa on Delivery</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill" *ngIf="paymentMode === 'mpesa' || paymentMode === 'airtel-money'">
+                    <mat-label>Mobile No</mat-label>
+                    <input matInput formControlName="mobileNo" placeholder="0725123456"
+                           required>
+                </mat-form-field>
+                <div>
+                  <button mat-button mat-raised-button color="primary" matStepperNext>Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step [stepControl]="addressFormGroup" label="Fill out your Delivery address">
+              <form [formGroup]="addressFormGroup">
+                <mat-form-field appearance="fill">
+                    <mat-label>County</mat-label>
+                    <mat-select formControlName="county">
+                      <mat-option value="nairobi">Nairobi</mat-option>
+                      <mat-option value="ug">Uasin Gishu</mat-option>
+                      <mat-option value="kisumu">Kisumu</mat-option>
+                      <mat-option value="msa">Mombasa</mat-option>
+                      <mat-option value="nakuru">Nakuru</mat-option>
+                    </mat-select>
+                </mat-form-field>
+                <mat-form-field appearance="fill">
+                    <mat-label>Town</mat-label>
+                    <input matInput formControlName="town" placeholder="Eldoret, Nairobi"
+                           required>
+                  </mat-form-field>
+                  <mat-form-field appearance="fill">
+                    <mat-label>Estate</mat-label>
+                    <input matInput formControlName="estate" placeholder="Ex. 1 Main St, New York, NY"
+                           required>
+                  </mat-form-field>
+                <mat-form-field appearance="fill">
+                  <mat-label>House Address</mat-label>
+                  <input matInput formControlName="houseAddress" placeholder="Ex. 1 Main St, New York, NY"
+                         required>
+                </mat-form-field>
+                <div class="checkout-navigation">
+                  <button mat-button matStepperPrevious mat-raised-button color="accent">Back</button>
+                  <button mat-button mat-raised-button color="primary" matStepperNext (click)="generateCheckoutSummary()">Next</button>
+                </div>
+              </form>
+            </mat-step>
+            <mat-step>
+              <ng-template matStepLabel>Confirm Details</ng-template>
+              <div class="payment-mode-details">
+                <h3>Shopping Details</h3>
+                  <mat-list role="list">
+                    <mat-list-item role="listitem" *ngFor="let item of cartItems">{{item.productName}} : Sh {{item.quantity * item.unitPrice}}</mat-list-item>
+                    <mat-list-item role="listitem">Total Cost : {{cartTotal}}</mat-list-item>
+                  </mat-list>
+                <h3>Payment Details</h3>
+                  <mat-list role="list">
+                    <mat-list-item role="listitem">Payment Mode: {{paymentDetails.paymentMode}}</mat-list-item>
+                    <mat-list-item role="listitem">Mobile No: {{paymentDetails.mobileNo}}</mat-list-item>
+                  </mat-list>
+
+                  <h3>Address Details</h3>
+                  <mat-list role="list">
+                      <mat-list-item role="listitem">County : {{addressDetails.county}}</mat-list-item>
+                      <mat-list-item role="listitem">Town : {{addressDetails.town}}</mat-list-item>
+                      <mat-list-item role="listitem">Estate : {{addressDetails.estate}}</mat-list-item>
+                      <mat-list-item role="listitem">House Address : {{addressDetails.houseAddress}}</mat-list-item>
+                    </mat-list>
+                  
+              </div>
+              <div class="checkout-navigation">
+                <button mat-button mat-raised-button matStepperPrevious  color="accent">Back</button>
+                <button mat-button mat-raised-button color="warn" (click)="stepper.reset()">Reset</button>
+                <button mat-button mat-raised-button color="primary" (click)="completeShopping()">Finish</button>
+              </div>
+            </mat-step>
+          </mat-stepper>
+
+    </div>
+</div>

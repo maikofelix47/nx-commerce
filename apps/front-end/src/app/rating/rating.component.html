@@ -1,0 +1,18 @@
+<div class="rating-container">
+<div class="rating-grid">
+    <span>
+    <mat-icon 
+    *ngFor="let product of stars; index as i"
+    aria-hidden="false" 
+    aria-label="Rating icon" 
+    fontIcon="star"
+    [ngClass]="{'checked' : i+1 <= rating, 'unchecked': i+1 > rating }">
+    </mat-icon>
+   
+    </span>
+    <span>
+        <p>Rating:  ({{rating}} / 5)</p>
+    </span>
+</div>
+
+</div>

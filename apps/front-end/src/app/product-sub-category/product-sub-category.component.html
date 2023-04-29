@@ -1,0 +1,19 @@
+<div class="sub-category-content">
+    <h2 class="sub-category-title">Sub Categories</h2>
+    <ng-container *ngIf="(subCategories$ | async) as subCategories">
+      <div class="grid-container">
+        <div class="grid-item" *ngFor="let sub of subCategories; index as i">
+            <mat-card 
+            class="sub-category-card"
+            (click) ="goToProducts(sub.id)"
+            >
+                  <h4>{{sub.name}}</h4>
+              </mat-card>
+        </div>
+         
+      </div>
+    </ng-container>
+</div>
+    
+    
+      

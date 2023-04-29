@@ -1,0 +1,11 @@
+.admin-dawer-container{
+    width: 100%;
+    background-color: #FFF;
+}
+.admin-side-nav{
+    width: 200px;
+    padding-left: 20px;
+}
+.sidenav-link{
+    text-decoration: none;
+}

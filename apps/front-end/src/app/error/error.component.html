@@ -1,0 +1,4 @@
+<mat-list class="error-list" *ngIf="errors.length > 0">
+    <mat-list-item *ngFor="let error of errors; index as i" class="error-item">{{error.message}}</mat-list-item>
+</mat-list>
+  

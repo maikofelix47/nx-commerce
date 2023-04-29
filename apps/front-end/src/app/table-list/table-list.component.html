@@ -1,0 +1,12 @@
+<h3 class="table-title">{{title}}</h3>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+    <ng-container matColumnDef="{{colDef.columnDef}}" *ngFor="let colDef of columnDefs">
+      <th mat-header-cell *matHeaderCellDef> {{ colDef.headerCellDef}} </th>
+      <td mat-cell *matCellDef="let element"> {{element[colDef.matCellDef]}} </td>
+    </ng-container>
+
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

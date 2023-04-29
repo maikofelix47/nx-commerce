@@ -1,0 +1,25 @@
+<div class="create-sub-category-form">
+  <form [formGroup]="createSubCategoryForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Name : </mat-label>
+      <input matInput formControlName="name" type="text" />
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Description</mat-label>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category</mat-label>
+      <mat-select formControlName="categoryId">
+        <mat-option
+          value="{{ category.id }}"
+          *ngFor="let category of categories$ | async"
+          >{{ category.name }}</mat-option
+        >
+      </mat-select>
+    </mat-form-field>
+    <button mat-button mat-raised-button color="primary" (click)="submitData()">
+      Create
+    </button>
+  </form>
+</div>

@@ -1,0 +1,22 @@
+<app-navbar></app-navbar>
+<mat-drawer-container class="admin-dawer-container">
+  <mat-drawer mode="side" opened class="admin-side-nav">
+    <mat-list role="list">
+      <mat-list-item role="listitem">
+        <a [routerLink]="['category']" class="sidenav-link">Categories</a>
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <a [routerLink]="['sub-category']" class="sidenav-link"
+          >Sub Categories</a
+        >
+      </mat-list-item>
+      <mat-list-item role="listitem">
+        <a [routerLink]="['product']" class="sidenav-link">Products</a>
+      </mat-list-item>
+    </mat-list>
+  </mat-drawer>
+  <mat-drawer-content>
+    <app-alert></app-alert>
+    <router-outlet></router-outlet>
+  </mat-drawer-content>
+</mat-drawer-container>

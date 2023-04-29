@@ -1,0 +1,24 @@
+<div class="pf-container">
+    <div class="pf-grid-item">
+        <h3>Product Filter</h3>
+        <mat-form-field appearance="outline">
+            <mat-label>Min Price</mat-label>
+            <input matInput [(ngModel)]="minPrice">
+        </mat-form-field> 
+        <mat-form-field appearance="outline">
+            <mat-label >Max Price </mat-label>
+            <input matInput [(ngModel)]="maxPrice">
+        </mat-form-field> 
+        <mat-form-field appearance="outline">
+            <mat-label>Rating</mat-label>
+            <mat-select [(ngModel)]="rating">
+              <mat-option value=1>1</mat-option>
+              <mat-option value=2>2</mat-option>
+              <mat-option value=3>3</mat-option>
+              <mat-option value=4>4</mat-option>
+              <mat-option value=5>5</mat-option>
+            </mat-select>
+        </mat-form-field>   
+        <button mat-raised-button color="primary" (click)="applyFilter()">Apply Filter</button>
+    </div>
+</div>

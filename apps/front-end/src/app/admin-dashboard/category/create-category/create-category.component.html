@@ -1,0 +1,32 @@
+<div class="create-category-grid-container">
+  <div class="create-category-grid">
+    <mat-tab-group>
+      <mat-tab label="Create Category">
+        <div class="create-category-form">
+          <h2>Create Category</h2>
+          <form [formGroup]="createCategoryForm">
+            <mat-form-field appearance="outline">
+              <mat-label>Name : </mat-label>
+              <input matInput formControlName="name" type="text" />
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea matInput formControlName="description"></textarea>
+            </mat-form-field>
+            <button
+              mat-button
+              mat-raised-button
+              color="primary"
+              (click)="submitCategoryData()"
+            >
+              Create
+            </button>
+          </form>
+        </div>
+      </mat-tab>
+      <mat-tab label="Categories">
+        <app-category-list></app-category-list>
+      </mat-tab>
+    </mat-tab-group>
+  </div>
+</div>

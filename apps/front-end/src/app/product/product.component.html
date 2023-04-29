@@ -1,0 +1,61 @@
+<div class="products-content">
+  <h2 class="section-title">Products</h2>
+  <div class="products-filter-container">
+    <div class="product-filter">
+      <app-product-filter></app-product-filter>
+    </div>
+    <div class="products">
+      <div class="product-grid-container" *ngIf="filteredProducts.length > 0">
+        <div
+          class="product-grid-item"
+          *ngFor="let product of filteredProducts; index as i"
+        >
+          <mat-card class="category-card">
+            <img
+              mat-card-image
+              [src]="product.media[0] ? product.media[0].url : ''"
+              alt="{{ product.name }}"
+            />
+            <mat-card-content>
+              <h3 class="product-title">{{ product.name }}</h3>
+              <p>Price : {{ product.price }}</p>
+              <mat-form-field>
+                <mat-label>Quantity</mat-label>
+                <input matInput [(ngModel)]="quantity" type="number" />
+              </mat-form-field>
+              <p>
+                <app-rating
+                  [rating]="product.rating"
+                  [maxRating]="5"
+                ></app-rating>
+              </p>
+            </mat-card-content>
+            <mat-card-actions>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="viewProduct(product.id)"
+                class="product-btn"
+              >
+                View
+              </button>
+              <button
+                mat-raised-button
+                color="primary"
+                (click)="addToCart(product, quantity)"
+                class="product-btn"
+              >
+                Add to cart
+                <mat-icon
+                  aria-hidden="false"
+                  aria-label="Shopping cart icon"
+                  fontIcon="shopping_cart"
+                ></mat-icon>
+              </button>
+            </mat-card-actions>
+          </mat-card>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

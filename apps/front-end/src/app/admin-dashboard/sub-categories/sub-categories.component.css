@@ -1,0 +1,17 @@
+.create-sub-category-grid-container {
+  display: grid;
+  grid-template-columns: auto;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+mat-form-field {
+  width: 100%;
+}
+
+.create-sub-category {
+  text-align: center;
+  padding-top: 100px;
+  padding-left: 30%;
+  padding-right: 30%;
+}
