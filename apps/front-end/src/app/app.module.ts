@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { NgOptimizedImage } from '@angular/common'
+import { NgOptimizedImage } from '@angular/common';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -19,17 +19,14 @@ import { SignUpComponent } from './sign-up/sign-up.component';
 import { CategoryService } from './services/category.service';
 import { SearchComponent } from './search/search.component';
 
-
 import { ProductDetailsService } from './services/product-details.service';
 import { ProductsService } from './services/products.service';
 import { ShoppingCartDialogComponent } from './shopping-cart/shopping-cart-dialog/shopping-cart-dialog.component';
-
 
 import { TokenInterceptorService } from './services/interceptors/token-interceptor.service';
 import { LoaderComponent } from './loader/loader.component';
 
 import { LoaderService } from './services/loader.service';
-
 
 import { AdminModule } from './admin-dashboard/admin.module';
 import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
@@ -59,7 +56,7 @@ import { TableListModule } from './table-list/table-list.module';
     NgMaterialModule,
     AppRoutingModule,
     AlertModule,
-    TableListModule
+    TableListModule,
   ],
   providers: [
     ErrorService,
@@ -72,7 +69,7 @@ import { TableListModule } from './table-list/table-list.module';
       multi: true,
     },
     LoaderService,
-    SubCategoryService
+    SubCategoryService,
   ],
   exports: [],
   bootstrap: [AppComponent],

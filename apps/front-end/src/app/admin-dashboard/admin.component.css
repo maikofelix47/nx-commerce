@@ -1,6 +1,7 @@
 .admin-dawer-container{
     width: 100%;
     background-color: #FFF;
+    min-height: 600px;
 }
 .admin-side-nav{
     width: 200px;

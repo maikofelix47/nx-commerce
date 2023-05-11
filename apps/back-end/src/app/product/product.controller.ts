@@ -22,7 +22,6 @@ import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { File } from '../models/file';
 
 @Controller('product')
-@UseGuards(JwtAuthGuard)
 export class ProductController {
   constructor(private prodService: ProductService) {}
 
@@ -36,6 +35,7 @@ export class ProductController {
     return this.prodService.findById(parseInt(id));
   }
 
+  @UseGuards(JwtAuthGuard)
   @Post()
   @UseInterceptors(FileInterceptor('file'))
   createProduct(

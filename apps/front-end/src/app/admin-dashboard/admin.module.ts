@@ -18,6 +18,7 @@ import { CreateSubCategoryComponent } from './sub-categories/create-sub-category
 import { AlertModule } from '../alert/alert.module';
 import { AdminProductListComponent } from './product/admin-product-list/admin-product-list.component';
 import { TableListModule } from '../table-list/table-list.module';
+import { AdminLandingComponent } from './admin-landing/admin-landing.component';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -28,7 +29,8 @@ import { TableListModule } from '../table-list/table-list.module';
     SubCategoriesComponent,
     SubCategoryListComponent,
     CreateSubCategoryComponent,
-    AdminProductListComponent
+    AdminProductListComponent,
+    AdminLandingComponent
   ],
   imports: [
     AdminRoutingModule,

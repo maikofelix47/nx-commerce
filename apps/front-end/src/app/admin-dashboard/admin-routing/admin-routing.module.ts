@@ -5,6 +5,7 @@ import { CreateCategoryComponent } from '../category/create-category/create-cate
 import { AuthGuardService } from '../../services/auth-guard.service';
 import { AdminProductComponent } from '../product/product.component';
 import { SubCategoriesComponent } from '../sub-categories/sub-categories.component';
+import { AdminLandingComponent } from '../admin-landing/admin-landing.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,11 @@ const routes: Routes = [
     component: AdminComponent,
     canActivate: [AuthGuardService],
     children: [
+      {
+        path: '',
+        component: AdminLandingComponent,
+        title: 'Admin Landing Page'
+      },
       {
         path: 'category',
         component: CreateCategoryComponent,
