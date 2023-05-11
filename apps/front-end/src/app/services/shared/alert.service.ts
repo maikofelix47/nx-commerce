@@ -8,8 +8,6 @@ export class AlertService {
   private alertSub = new BehaviorSubject<SuccessMessage[]>([]);
   alertsMessages$ = this.alertSub.asObservable();
    
-  constructor() { }
-
   alert(...message: SuccessMessage[]){
      this.alertSub.next(message);
   }

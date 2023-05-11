@@ -19,7 +19,7 @@ export class SubCategoryService {
 
   createSubCategory(
     createSubCategoryPayload: SubCategory
-  ): Observable<Category> {
+  ): Observable<SubCategory> {
     return this.http.post<SubCategory>(this.url, createSubCategoryPayload);
   }
   getSubCategoriesByCategoryId(categoryId: string) {

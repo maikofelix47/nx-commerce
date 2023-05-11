@@ -5,6 +5,8 @@ import { Category } from '../../../models/category';
 import { CategoryService } from '../../../services/category.service';
 import { SubCategoryService } from '../../../services/sub-category.service';
 import { SubCategory } from '../../../models/sub-category';
+import { AlertService } from '../../../services/shared/alert.service';
+import { SuccessMessage } from '../../../models/success-message';
 
 @Component({
   selector: 'app-create-sub-category',
@@ -22,7 +24,8 @@ export class CreateSubCategoryComponent implements OnInit {
 
   constructor(
     private categoryService: CategoryService,
-    private subCategoryService: SubCategoryService
+    private subCategoryService: SubCategoryService,
+    private alertService: AlertService
   ) {}
 
   ngOnInit(): void {
@@ -43,7 +46,11 @@ export class CreateSubCategoryComponent implements OnInit {
 
     this.subCategoryService
       .createSubCategory(payLoad)
-      .subscribe((response: any) => {
+      .subscribe((response: SubCategory) => {
+        const successMessage: SuccessMessage = {
+          message: `Subcategory ${response.name} has successfully been created`
+        };
+        this.alertService.alert(successMessage);
         this.createSubCategoryForm.reset();
       });
   }

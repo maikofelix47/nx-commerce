@@ -2,7 +2,7 @@
   "name": "front-end",
   "$schema": "../../node_modules/nx/schemas/project-schema.json",
   "projectType": "application",
-  "prefix": "nx-commerce",
+  "prefix": "app",
   "sourceRoot": "apps/front-end/src",
   "tags": [],
   "targets": {

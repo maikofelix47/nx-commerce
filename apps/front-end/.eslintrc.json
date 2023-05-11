@@ -17,7 +17,7 @@
           "error",
           {
             "type": "element",
-            "prefix": "nx-commerce",
+            "prefix": "app",
             "style": "kebab-case"
           }
         ]

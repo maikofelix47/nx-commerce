@@ -1,5 +1,10 @@
-<ng-container *ngIf="(messages$ | async) as messages">
-<mat-list class="message-list" *ngIf="messages.length > 0">
-    <mat-list-item *ngFor="let message of messages; index as i" class="message-item">{{message.message}}</mat-list-item>
-</mat-list>
+<ng-container *ngIf="messages$ | async as messages">
+    <mat-list class="message-list" *ngIf="messages.length > 0">
+      <mat-list-item
+        *ngFor="let message of messages; index as i"
+        class="message-item"
+        >{{ message.message }}
+        <button class="close-btn" (click)="hideAlert()">x</button>
+      </mat-list-item>
+    </mat-list>
 </ng-container>
