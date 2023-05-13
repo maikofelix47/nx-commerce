@@ -1,29 +1,36 @@
 import { Injectable } from '@angular/core';
-import { nestBaseUrl } from '../../../environment';
 import { SubCategory } from '../models/sub-category';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Category } from '../models/category';
+import { SettingsService } from '../settings/settings.service';
 
 @Injectable({
   providedIn: 'root',
 })
 export class SubCategoryService {
-  private url = nestBaseUrl + '/sub-category';
+  constructor(
+    private http: HttpClient,
+    private settingsService: SettingsService
+  ) {}
 
-  constructor(private http: HttpClient) {}
+  private getBaseUrl(): string {
+    return this.settingsService.getBaseUrl() + '/sub-category';
+  }
 
   getAllSubCategories(): Observable<SubCategory[]> {
-    return this.http.get<SubCategory[]>(this.url);
+    return this.http.get<SubCategory[]>(this.getBaseUrl());
   }
 
   createSubCategory(
     createSubCategoryPayload: SubCategory
   ): Observable<SubCategory> {
-    return this.http.post<SubCategory>(this.url, createSubCategoryPayload);
+    return this.http.post<SubCategory>(
+      this.getBaseUrl(),
+      createSubCategoryPayload
+    );
   }
   getSubCategoriesByCategoryId(categoryId: string) {
-    const subUrl = this.url + `/category/${categoryId}`;
+    const subUrl = this.getBaseUrl() + `/category/${categoryId}`;
     return this.http.get<SubCategory[]>(subUrl);
   }
 }

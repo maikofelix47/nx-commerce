@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { BehaviorSubject } from 'rxjs';
 
 import { Product } from '../models/product';
-import { Cart, CartItem } from '../models/shopping-cart';
+import { CartItem } from '../models/shopping-cart';
 
 @Injectable({
   providedIn: 'root',
@@ -14,8 +14,6 @@ export class ShoppingCartService {
   public itemsInCartObs$ = this.itemsInCart.asObservable();
   public no = 0;
   public cart!: CartItem[];
-
-  constructor() {}
 
   getItemsInCart(): Observable<number> {
     return this.itemsInCartObs$;
@@ -65,16 +63,17 @@ export class ShoppingCartService {
       }
     });
   }
-  getCartTotal(): number{
-     const cart = this.getCart();
-     if (cart.length === 0) return 1;
-     return cart.map((t:CartItem) => t.unitPrice * t.quantity).reduce((acc, value) => acc + value, 0);
+  getCartTotal(): number {
+    const cart = this.getCart();
+    if (cart.length === 0) return 1;
+    return cart
+      .map((t: CartItem) => t.unitPrice * t.quantity)
+      .reduce((acc, value) => acc + value, 0);
   }
-  emptyCart(){
+  emptyCart() {
     localStorage.removeItem('cart');
     const cart = this.getCart();
     this.cart = cart;
     this.itemsInCart.next(cart.length);
-
   }
 }

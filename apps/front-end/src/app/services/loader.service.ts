@@ -3,18 +3,13 @@ import { Subject } from 'rxjs';
 
 @Injectable()
 export class LoaderService {
-
   private loaderSubj = new Subject<boolean>();
   public loderObs$ = this.loaderSubj.asObservable();
 
-  constructor() { }
-
-  public showLoader(){
-     this.loaderSubj.next(true);
+  public showLoader() {
+    this.loaderSubj.next(true);
   }
-  public hideLoader(){
-     this.loaderSubj.next(false);
+  public hideLoader() {
+    this.loaderSubj.next(false);
   }
-
-
 }

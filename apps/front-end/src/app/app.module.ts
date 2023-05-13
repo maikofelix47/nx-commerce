@@ -33,6 +33,7 @@ import { UserDashboardModule } from './user-dashboard/user-dashboard.module';
 import { SubCategoryService } from './services/sub-category.service';
 import { AlertModule } from './alert/alert.module';
 import { TableListModule } from './table-list/table-list.module';
+import { SettingsService } from './settings/settings.service';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { TableListModule } from './table-list/table-list.module';
     },
     LoaderService,
     SubCategoryService,
+    SettingsService
   ],
   exports: [],
   bootstrap: [AppComponent],

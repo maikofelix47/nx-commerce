@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 
 import { Observable, Subject } from 'rxjs';
 
-import { nestBaseUrl } from '../../../environment';
+import { SettingsService } from '../settings/settings.service';
 
 //models
 
@@ -16,9 +16,11 @@ import { CurrentUser } from '../models/current-user';
 export class AuthService {
   private signedInUserSub = new Subject();
   public signedInUser$ = this.signedInUserSub.asObservable();
-  private backendBaseUrl = nestBaseUrl;
 
-  constructor(private http: HttpClient) {}
+  constructor(
+    private http: HttpClient,
+    private settingsService: SettingsService
+  ) {}
 
   isAuthorized(): boolean {
     return this.isSessionActive();
@@ -61,8 +63,8 @@ export class AuthService {
     localStorage.removeItem('user');
   }
 
-  signUp(userName: string , email: string, password: string) {
-    const url = this.backendBaseUrl + '/auth/sign-up';
+  signUp(userName: string, email: string, password: string) {
+    const url = this.settingsService.getBaseUrl() + '/auth/sign-up';
     const payload = {
       userName,
       email,
@@ -71,7 +73,7 @@ export class AuthService {
     return this.http.post(url, payload);
   }
   login(email: string, password: string): Observable<any> {
-    const url = this.backendBaseUrl + '/auth/sign-in';
+    const url = this.settingsService.getBaseUrl() + '/auth/sign-in';
     const payload = {
       email,
       password,
