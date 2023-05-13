@@ -6,7 +6,9 @@ describe('AuthGuardService', () => {
   let service: AuthGuardService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers: [AuthGuardService]
+    });
     service = TestBed.inject(AuthGuardService);
   });
 

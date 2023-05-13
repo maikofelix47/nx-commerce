@@ -6,7 +6,9 @@ describe('SubCategoryService', () => {
   let service: SubCategoryService;
 
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      providers:[SubCategoryService]
+    });
     service = TestBed.inject(SubCategoryService);
   });
 
