@@ -1,13 +1,28 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { AuthService } from './auth.service';
+
+class MockAuthService{
+  constructor(){}
+  getBaseUrl(){
+    return 'http://localhost/api'
+  }
+}
 
 describe('AuthService', () => {
   let service: AuthService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers:[AuthService]
+      imports: [HttpClientTestingModule],
+      providers:[
+        AuthService,
+        {
+          provide: AuthService,
+          useClass: MockAuthService
+        }
+      ]
     });
     service = TestBed.inject(AuthService);
   });
