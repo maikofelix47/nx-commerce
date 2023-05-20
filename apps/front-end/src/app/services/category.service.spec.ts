@@ -1,18 +1,33 @@
 import { TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { CategoryService } from './category.service';
+import { SettingsService } from '../settings/settings.service';
+
+class MockSettingsService{
+  getBaseUrl(){
+    return 'http://localhost/api';
+  }
+}
 
 describe('CategoryService', () => {
-  let service: CategoryService;
+  let categoryService: CategoryService;
+  let settingsService: SettingsService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
-      providers:[CategoryService]
+      imports: [HttpClientTestingModule],
+      providers:[
+        CategoryService,
+        {
+          provide: SettingsService,
+          useClass: MockSettingsService
+        }
+      ]
     });
-    service = TestBed.inject(CategoryService);
+    categoryService = TestBed.inject(CategoryService);
   });
 
   it('should be created', () => {
-    expect(service).toBeTruthy();
+    expect(categoryService).toBeTruthy();
   });
 });
