@@ -1,6 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { CategoryService } from '../../../services/category.service';
 import { CategoryListComponent } from './category-list.component';
+import { SettingsService } from '../../../settings/settings.service';
 
 describe('CategoryListComponent', () => {
   let component: CategoryListComponent;
@@ -8,7 +10,12 @@ describe('CategoryListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CategoryListComponent ]
+      imports: [HttpClientTestingModule],
+      declarations: [ CategoryListComponent ],
+      providers: [
+        CategoryService,
+        SettingsService
+      ]
     })
     .compileComponents();
 
