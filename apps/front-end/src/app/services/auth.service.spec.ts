@@ -4,7 +4,6 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { AuthService } from './auth.service';
 
 class MockAuthService{
-  constructor(){}
   getBaseUrl(){
     return 'http://localhost/api'
   }
