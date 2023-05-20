@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { RouterTestingModule } from '@angular/router/testing';
 import { NavbarComponent } from './navbar.component';
+import { SettingsService } from '../settings/settings.service';
+import { NgMaterialModule } from '../ng-material/ng-material.module';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
@@ -8,7 +11,9 @@ describe('NavbarComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ NavbarComponent ]
+      imports: [HttpClientTestingModule, NgMaterialModule, RouterTestingModule],
+      declarations: [ NavbarComponent ],
+      providers: [SettingsService]
     })
     .compileComponents();
 

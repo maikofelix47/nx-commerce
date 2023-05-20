@@ -16,7 +16,7 @@ import { ProductFilterParams } from '../models/product-filter';
 })
 export class ProductComponent implements OnInit{
  public products: Product[] = [];
- public quantity: number = 1;
+ public quantity = 1;
  public filterParams: ProductFilterParams = {
    minPrice: 0,
    maxPrice: 0,

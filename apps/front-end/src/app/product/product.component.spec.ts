@@ -5,6 +5,16 @@ import { ProductComponent } from './product.component';
 import { ProductsService } from '../services/products.service';
 import { SettingsService } from '../settings/settings.service';
 import { LoaderService } from '../services/loader.service';
+import { Component } from '@angular/core';
+
+@Component(
+  {
+    selector:'app-product-filter'
+  }
+)
+class ProductFilterComponent{
+
+}
 
 describe('ProductComponent', () => {
   let component: ProductComponent;
@@ -16,7 +26,7 @@ describe('ProductComponent', () => {
         HttpClientTestingModule,
         RouterTestingModule
       ],
-      declarations: [ ProductComponent ],
+      declarations: [ ProductComponent, ProductFilterComponent ],
       providers: [
         ProductsService,
         SettingsService,

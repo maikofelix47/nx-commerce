@@ -3,8 +3,6 @@ import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ShoppingCartService } from '../services/shopping-cart.service';
-
-import { Product } from '../models/product';
 import { Cart, CartItem } from '../models/shopping-cart';
 import { ShoppingCartDialogComponent } from './shopping-cart-dialog/shopping-cart-dialog.component';
 
@@ -18,7 +16,7 @@ export class ShoppingCartComponent implements OnInit{
   public displayedColumns: string[] = ['productId','productName', 'unitPrice', 'quantity', 'total' ,'edit'];
   public cart!: Cart;
   public cartItems: CartItem[] = [];
-  public totalCost: number = 0;
+  public totalCost = 0;
 
   constructor(private cartService: ShoppingCartService, 
     private dialog: MatDialog,
