@@ -27,7 +27,4 @@ export class PermissionService {
         const permissionEntity = this.permissonRepo.create(permission);
         return this.permissonRepo.save(permissionEntity);
     }
-
-    void(id: number, body: {voidReason: string}){
-    }
 }
