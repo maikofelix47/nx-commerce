@@ -28,7 +28,10 @@ describe('PermissionService', () => {
     permissonRepo = module.get<Repository<Permission>>(PERMISSION_REPO_TOKEN);
   });
 
-  it('should be defined', () => {
+  it('permission service should be defined', () => {
     expect(service).toBeDefined();
+  });
+  it('permission repository should be defined', () => {
+    expect(permissonRepo).toBeDefined();
   });
 });

@@ -33,7 +33,10 @@ describe('RoleService', () => {
     roleRepository = module.get<Repository<Role>>(ROLE_REPOSITORY_TOKEN);
   });
 
-  it('should be defined', () => {
+  it('role service should be defined', () => {
     expect(service).toBeDefined();
+  });
+  it('role repository should be defined', () => {
+    expect(roleRepository).toBeDefined();
   });
 });
