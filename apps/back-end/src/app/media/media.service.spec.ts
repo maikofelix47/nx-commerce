@@ -34,7 +34,10 @@ describe('MediaService', () => {
     mediaRepository = module.get<Repository<Media>>(MEDIA_REPOSITORY_TOKEN);
   });
 
-  it('should be defined', () => {
+  it('media service should be defined', () => {
     expect(service).toBeDefined();
+  });
+  it('media repository should be defined', () => {
+    expect(mediaRepository).toBeDefined();
   });
 });
