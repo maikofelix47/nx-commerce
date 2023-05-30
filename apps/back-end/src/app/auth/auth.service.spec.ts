@@ -2,6 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AuthService } from './auth.service';
 import { UsersService } from '../users/users.service';
 import { JwtService } from '@nestjs/jwt';
+import { ConfigService } from '@nestjs/config';
 
 const mockUsersService = {
 
@@ -10,11 +11,15 @@ const mockUsersService = {
 const mockJwtService = {
 
 };
+const mockConfigService={
+
+};
 
 describe('AuthService', () => {
   let service: AuthService;
   let usersService: UsersService;
   let jwtService: JwtService;
+  let configService: ConfigService;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -27,6 +32,10 @@ describe('AuthService', () => {
         {
           provide: JwtService,
           useValue: mockJwtService
+        },
+        {
+          provide: ConfigService,
+          useValue: mockConfigService
         }
       ],
     }).compile();
@@ -34,6 +43,7 @@ describe('AuthService', () => {
     service = module.get<AuthService>(AuthService);
     usersService = module.get<UsersService>(UsersService);
     jwtService = module.get<JwtService>(JwtService);
+    configService = module.get<ConfigService>(ConfigService);
   });
 
   it('auth service should be defined', () => {
@@ -44,5 +54,8 @@ describe('AuthService', () => {
   });
   it('jwt service should be defined', () => {
     expect(jwtService).toBeDefined();
+  });
+  it('config service should be defined', () => {
+    expect(configService).toBeDefined();
   });
 });

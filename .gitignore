@@ -44,3 +44,4 @@ Thumbs.db
 *db-config.ts
 *aws-constants.ts
 *jwt-constants.ts
+*.*env

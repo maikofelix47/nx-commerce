@@ -20,9 +20,14 @@ import { CustomerModule } from './customer/customer.module';
 import { CustomerDetailsModule } from './customer-details/customer-details.module';
 import { OrderModule } from './order/order.module';
 import { OrderDetailsModule } from './order-details/order-details.module';
+import  { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [ProductModule, CategoryModule, UsersModule,
+   ConfigModule.forRoot({ 
+    envFilePath: '.back-end.env'
+  }
+   ),
    TypeOrmModule.forRoot(
    DBConfig
    ),

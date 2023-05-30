@@ -5,11 +5,15 @@ import { Media } from './media.entity';
 import { S3 } from 'aws-sdk';
 import { v4 as uuidv4 } from 'uuid';
 import { AWSFileUploadResponse } from '../models/aws-file-upload-response';
-import { AWS_S3_BUCKET } from '../../../aws-constants';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class MediaService {
-  constructor(@InjectRepository(Media) private mediaRepo: Repository<Media>) {}
+  constructor(
+    @InjectRepository(Media) private mediaRepo: Repository<Media>,
+    private configService: ConfigService
+    ) {
+    }
   findAll() {
     return this.mediaRepo.find();
   }
@@ -28,7 +32,7 @@ export class MediaService {
     const s3 = new S3();
     const uuidString = uuidv4();
     const params: S3.PutObjectRequest = {
-      Bucket: AWS_S3_BUCKET,
+      Bucket: this.configService.get<string>('AWS_S3_BUCKET'),
       Key: `${uuidString}-${fileName}`,
       Body: dataBuffer,
     };
