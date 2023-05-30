@@ -10,9 +10,7 @@ const FakeUserRepository = {
    findBy: jest.fn(),
    save: jest.fn(),
    remove: jest.fn(),
-   create: jest.fn(()=>{
-    console.log('create called..');
-   })
+   create: jest.fn()
 };
 
 const mockUser = {
