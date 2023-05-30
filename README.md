@@ -7,6 +7,7 @@ This is a monorepo containing 2 e-commerce apps
 3. TypeORM
 4. MySQL server
 5. Nx v15+
+6. SwaggerUi v6+
 
 ## Set up
 1. Fork the project
@@ -49,6 +50,14 @@ The NestJs app will be launced
 2. NestJs Tests
 
 `npm run test:be`
+
+## API Docs
+
+Use SwaggerUi to visualize and interact with the API’s resources
+
+Make sure the back-end service has been started if not start with `nx server back-end`
+
+Navigate to `http://localhost:3000/docs` using the browser
 
 ## Building
 
